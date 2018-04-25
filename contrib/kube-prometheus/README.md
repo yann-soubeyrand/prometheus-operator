@@ -93,11 +93,8 @@ minikube delete && minikube start --kubernetes-version=v1.9.6 --memory=4096 --bo
 Then we can render the manifests for kubeadm (because we are using the minikube kubeadm bootstrapper):
 
 ```
-docker run --rm \
-  -v `pwd`:/go/src/github.com/coreos/prometheus-operator/contrib/kube-prometheus \
-  --workdir /go/src/github.com/coreos/prometheus-operator/contrib/kube-prometheus \
-  po-jsonnet \
-  ./hack/scripts/build-jsonnet.sh example-dist/kubeadm/kube-prometheus.jsonnet example-dist/kubeadm/manifests
+$ jb install github.com/coreos/prometheus-operator/contrib/kube-prometheus/jsonnet/kube-prometheus
+$ ./hack/scripts/build-jsonnet.sh example-dist/kubeadm/kube-prometheus.jsonnet example-dist/kubeadm/manifests
 ```
 
 > Note the `po-jsonnet` docker image is built using [this Dockerfile](/scripts/jsonnet/Dockerfile), you can also build it using `make image` from the `contrib/kube-prometheus` folder.

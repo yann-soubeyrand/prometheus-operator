@@ -8,4 +8,5 @@ generate: image
 	docker run --rm -u=$(shell id -u $(USER)):$(shell id -g $(USER)) -v `pwd`:/go/src/github.com/coreos/prometheus-operator/contrib/kube-prometheus --workdir /go/src/github.com/coreos/prometheus-operator/contrib/kube-prometheus po-jsonnet make generate-raw
 
 generate-raw:
+	cd jsonnet/kube-prometheus; jb install
 	./hack/scripts/build-jsonnet.sh example-dist/base/kube-prometheus.jsonnet manifests
