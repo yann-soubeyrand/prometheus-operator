@@ -3,8 +3,14 @@ description: Prometheus instance created by the CoreOS Prometheus Operator
 engine: gotpl
 maintainers:
   - name: Giancarlo Rubio
-    email: mgoodness@gmail.com
+    email: gianrubio@gmail.com
 name: prometheus
 sources:
-  - https://github.com/coreos/prometheus-operator
-version: 0.0.28
+  - https://github.com/prometheus/prometheus
+version: 0.0.29
+appVersion: "2.2.1"
+home: https://github.com/prometheus/prometheus
+keywords:
+- prometheus 
+- monitoring
+- metrics
